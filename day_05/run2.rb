@@ -40,9 +40,8 @@ class Runner
     move_from = instruction[1].to_i
     move_to = instruction[2].to_i
 
-    number_to_move.times do
-      @stacks[move_to] << @stacks[move_from].pop
-    end
+    @stacks[move_to] << @stacks[move_from].pop(number_to_move)
+    @stacks[move_to] = @stacks[move_to].flatten
 
     puts @stacks.inspect
   end

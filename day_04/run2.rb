@@ -4,26 +4,26 @@ class Runner
     @pairs = {}
     @i = 0
     parse_input
-    @covering_pairs = 0
+    @overlapping_pairs = 0
   end
 
   def run
     @pairs.each do |k,v|
-      covering?(v)
+      overlap?(v)
     end
 
-    puts @covering_pairs
+    puts @overlapping_pairs
   end
 
   private
 
-  def covering?(v)
+  def overlap?(v)
     a = v[:range_a]
     b = v[:range_b]
 
-    if (a[0]..a[1]).cover?(b[0]..b[1]) || (b[0]..b[1]).cover?(a[0]..a[1])
+    if !(((a[0]..a[1]).to_a & (b[0]..b[1]).to_a).empty?)
       puts "#{a.inspect} overlaps with #{b.inspect}"
-      @covering_pairs += 1
+      @overlapping_pairs += 1
     else
       # puts "#{a.inspect} does not overlap with #{b.inspect}"
     end

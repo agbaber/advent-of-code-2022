@@ -9,7 +9,6 @@ class Runner
   def run
     # 
     @rucksacks.each do |k,v|
-      # require 'pry';binding.pry
       shared_char = v[:values][0].split('').intersection(v[:values][1].split('')).first
       @rucksacks[@i][:priority] = points(shared_char)
       @rucksacks[@i][:priority_char] = shared_char

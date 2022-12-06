@@ -71,8 +71,6 @@ class Runner
   def parse_input
     stack_rows = []
 
-    i = 0
-
     @input.each_line do |line|
       if line.split(' ')&.first&.match(/\[*\]/)
         stack_rows << line.chomp

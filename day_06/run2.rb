@@ -2,14 +2,14 @@ class Runner
   def initialize(filename)
     @input = File.read(filename).chars
     @i = 0
-    @ie = 3
+    @ie = 13
     @start_of_packet_position = nil
 
   end
 
   def run
     until @start_of_packet_position
-      if @input[@i..@ie].uniq.size == 4
+      if @input[@i..@ie].uniq.size == 14
         @start_of_packet_position = @ie + 1
       end
 

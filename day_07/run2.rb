@@ -22,7 +22,12 @@ class Runner
       end
     end
     puts @directories.inspect
-    puts @directories.select {|k,v| v[:size] <= 100000}.map {|k,v| v[:size]}.inject(&:+)
+    # 40572957
+    # 70000000
+    free_space = 70000000 - 40572957
+    free_space_needed = 30000000
+    space_needed_to_delete = free_space_needed - free_space
+    puts @directories.select {|k,v| v[:size] >= space_needed_to_delete}.sort_by {|k,v| v[:size]}.first
   end
 
   private
@@ -83,4 +88,5 @@ end
 
 Runner.new('input.txt').run
 
-#1019191 too low
+#3296328 too high
+#9122 too low

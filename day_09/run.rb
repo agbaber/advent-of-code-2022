@@ -34,11 +34,15 @@ class Runner
     @x_delta = @head_position[0].abs - @tail_position[0].abs
     @y_delta = @head_position[1].abs - @tail_position[1].abs
 
-    if @x_delta.abs + @y_delta.abs > 2
-      puts "x_delta: #{@x_delta}, y_delta: #{@y_delta}"
+    if @x_delta.abs == 1 
+      if @y_delta.abs == 1
+        true
+      else
+        false
+      end
+    else
+      false
     end
-
-    @x_delta.abs == 1 && @y_delta.abs == 1
   end
 
   def check_and_move_tail(direction, previous_head)

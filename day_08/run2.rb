@@ -110,3 +110,4 @@ class Runner
 end
 
 Runner.new('input.txt').run
+# 6063 too low
